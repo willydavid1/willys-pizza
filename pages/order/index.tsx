@@ -16,16 +16,8 @@ const Order = () => {
     },
     {
       value: 4,
-      title: "Ingredients",
+      title: "Delivery",
     },
-    {
-      value: 5,
-      title: "Info",
-    },
-    {
-      value: 100,
-      title: "Payments",
-    }
   ];
 
   return (
@@ -39,7 +31,13 @@ const Order = () => {
         pizza
       </p>
       <div className="my-4">
-        <Steps steps={steps} />
+        <Steps steps={steps}>
+          {({ currentStep, switchToNext }) => (
+            <button onClick={switchToNext} className="p-4 bg-gray-200">
+              {currentStep}
+            </button>
+          )}
+        </Steps>
       </div>
     </>
   );
