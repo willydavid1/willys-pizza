@@ -26,8 +26,9 @@ const Order = () => {
       </h1>
       <p className="text-sm text-gray-500">
         Food ordering steps: <br />
-        1- Add your ingredients, 2- Add your Address/Info and enjoy Willy&apos;s
-        pizza <br />
+        1- Add your ingredients, <br />
+        2- Add your Address/Info and enjoy Willy&apos;s
+        pizza
       </p>
 
       <div className="my-4">
