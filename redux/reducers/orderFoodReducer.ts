@@ -91,6 +91,9 @@ const orderFoodReducer = (
         ),
       };
 
+    case typesActions.CLEAR_ALL:
+      return initialState
+
     default:
       return state;
   }
