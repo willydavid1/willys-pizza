@@ -1,3 +1,4 @@
+import Ingredients from "components/ingredients";
 import Steps from "components/steps";
 
 const Order = () => {
@@ -28,15 +29,23 @@ const Order = () => {
       <p className="text-sm text-gray-500">
         Food ordering steps: <br />
         1- Add your ingredients, 2- Add your Address/Info and enjoy Willy&apos;s
-        pizza
+        pizza <br />
       </p>
+
       <div className="my-4">
         <Steps steps={steps}>
-          {({ currentStep, switchToNext }) => (
-            <button onClick={switchToNext} className="p-4 bg-gray-200">
-              {currentStep}
-            </button>
-          )}
+          {({ currentStep, switchToNext }) => {
+            switch (currentStep) {
+              case 1:
+                return <Ingredients onClickButtonOrder={switchToNext} />
+              case 2:
+                return <h1>2</h1>
+              case 3:
+                return <h1>3</h1>
+              default:
+                return null
+            }
+          }}
         </Steps>
       </div>
     </>

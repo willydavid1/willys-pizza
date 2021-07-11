@@ -29,11 +29,10 @@ const Steps = ({ steps = [], children }: StepsProps) => {
     const newValue: number = currentStep + 1
     setCurrentStep(totalSteps >= newValue ? newValue : currentStep);
   }
-  console.log('render')
 
   return (
     <>
-      <div className="w-full flex space-x-2">
+      <div className="w-full flex space-x-2 mb-3">
         {steps.map((elem: StepsI, index: number) => (
           <div
             className={`flex items-center ${
