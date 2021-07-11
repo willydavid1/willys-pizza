@@ -7,7 +7,6 @@ import rootReducer from "redux/reducers/rootReducer";
 const middlewares: Array<any> = [thunk];
 const initialState: object = {};
 
-// create a makeStore function
 const makeStore = (context: Context) =>
   createStore(
     rootReducer,
@@ -15,5 +14,4 @@ const makeStore = (context: Context) =>
     composeWithDevTools(applyMiddleware(...middlewares))
   );
 
-// export an assembled wrapper
-export const wrapper = createWrapper<Store>(makeStore, { debug: true });
+export const wrapper = createWrapper<Store>(makeStore, { debug: false });

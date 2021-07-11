@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import orderFoodReducer, { IStateOrderFood }  from "redux/reducers/orderFoodReducer";
+import orderFoodReducer, {
+  IStateOrderFood,
+} from "redux/reducers/orderFoodReducer";
 
 export interface IState {
-  orderFood: IStateOrderFood
+  orderFood: IStateOrderFood;
 }
 
 const rootReducer = combineReducers({

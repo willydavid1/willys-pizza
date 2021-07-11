@@ -1,4 +1,4 @@
-import { typesActions } from 'redux/tools'
+import { typesActions } from "redux/tools";
 import { AnyAction } from "redux";
 
 export interface IIng {
@@ -13,31 +13,23 @@ export interface IIngSelected {
 }
 
 export interface IStateOrderFood {
-  customerName: string;
-  date: Date | null;
-  ingredientsSelected: { [name: string]: IIngSelected} ;
+  ingredientsSelected: { [name: string]: IIngSelected };
   ingredientsData: {
     isLoading: boolean;
     data: Array<IIng>;
     error: any;
   };
-  nameFood: string;
-  phone: number | string;
   totalPrice: number;
-  totalItemsSelected: number
+  totalItemsSelected: number;
 }
 
-const initialState: IStateOrderFood  = {
-  customerName: '',
-  date: null,
+const initialState: IStateOrderFood = {
   ingredientsSelected: {},
   ingredientsData: {
     isLoading: false,
     data: [],
-    error: null
+    error: null,
   },
-  nameFood: '',
-  phone: '',
   totalPrice: 0,
   totalItemsSelected: 0,
 };
@@ -53,8 +45,8 @@ const orderFoodReducer = (
         ingredientsData: {
           ...state.ingredientsData,
           ...initialState.ingredientsData,
-          isLoading: true
-        }
+          isLoading: true,
+        },
       };
 
     case typesActions.GET_INGREDIENTS_SUCCESS:
@@ -68,7 +60,7 @@ const orderFoodReducer = (
           })),
           error: null,
           isLoading: false,
-        }
+        },
       };
 
     case typesActions.GET_INGREDIENTS_ERROR:
@@ -78,19 +70,25 @@ const orderFoodReducer = (
           ...state.ingredientsData,
           error: action.payload,
           isLoading: false,
-        }
+        },
       };
-    
+
     case typesActions.DECREASE_INGREDIENT:
     case typesActions.ADD_INGREDIENT:
       return {
         ...state,
         ingredientsSelected: {
           ...state.ingredientsSelected,
-          ...action.payload
+          ...action.payload,
         },
-        totalPrice: Object.values(action.payload).reduce((prev: number, elem: any) => prev + elem.totalValue, 0),
-        totalItemsSelected: Object.values(action.payload).reduce((prev: number, elem: any) => prev + elem.quantity, 0)
+        totalPrice: Object.values(action.payload).reduce(
+          (prev: number, elem: any) => prev + elem.totalValue,
+          0
+        ),
+        totalItemsSelected: Object.values(action.payload).reduce(
+          (prev: number, elem: any) => prev + elem.quantity,
+          0
+        ),
       };
 
     default:

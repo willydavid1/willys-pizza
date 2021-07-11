@@ -1,8 +1,10 @@
 import Ingredients from "components/ingredients";
-import Steps from "components/steps";
+import Steps, { ISteps } from "components/steps";
+import OrderInfo from "components/orderInfo";
+import Delivery from "components/delivery";
 
 const Order = () => {
-  const steps = [
+  const steps: Array<ISteps> = [
     {
       value: 1,
       title: "Ingredients",
@@ -13,10 +15,6 @@ const Order = () => {
     },
     {
       value: 3,
-      title: "Payments",
-    },
-    {
-      value: 4,
       title: "Delivery",
     },
   ];
@@ -34,16 +32,21 @@ const Order = () => {
 
       <div className="my-4">
         <Steps steps={steps}>
-          {({ currentStep, switchToNext }) => {
+          {({ changeCurrentStep, currentStep, switchToNext }) => {
             switch (currentStep) {
               case 1:
-                return <Ingredients onClickButtonOrder={switchToNext} />
+                return <Ingredients onClickButtonOrder={switchToNext} />;
               case 2:
-                return <h1>2</h1>
+                return (
+                  <OrderInfo
+                    changeCurrentStep={changeCurrentStep}
+                    callbackWhenOrderEnds={switchToNext}
+                  />
+                );
               case 3:
-                return <h1>3</h1>
+                return <Delivery />;
               default:
-                return null
+                return null;
             }
           }}
         </Steps>
