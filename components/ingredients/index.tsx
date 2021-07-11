@@ -8,6 +8,7 @@ import {
 import { IIng } from "redux/reducers/orderFoodReducer";
 import Counter from "components/counter";
 import { IState } from "redux/reducers/rootReducer";
+import Loader from 'components/loader'
 
 type IngredientsProps = {
   food?: string;
@@ -51,7 +52,7 @@ const Ingredients = ({
 
   return (
     <div>
-      {isLoading && <div className="skeleton-0d1e66qm5fq"></div>}
+      {isLoading && <Loader />}
       {error && (
         <div className="py-5 bg-red-500 text-white rounded-lg">
           <h1 className="text-center">Error =(</h1>

@@ -17,7 +17,7 @@ interface IIngsRemoved {
   };
 }
 
-interface ISale {
+export interface ISale {
   kind_of_food: string;
   sale_details: {
     date: Date;
@@ -83,7 +83,7 @@ export default async function handler(
     },
   }));
 
-  const simulateDatabaseQuery = (delay: number = 2500): Promise<PayloadRes> =>
+  const simulateDatabaseQuery = (delay: number = 3000): Promise<PayloadRes> =>
     new Promise((resolve) => {
       setTimeout(() => {
         resolve({ sales: dataRes });
