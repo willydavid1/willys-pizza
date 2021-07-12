@@ -32,13 +32,14 @@ const Steps = ({ steps = [], children }: StepsProps) => {
 
   return (
     <>
-      <div className="w-full flex space-x-2 mb-3">
+      <div className="w-full flex space-x-2 mb-3" data-testid="Steps-Wrapper" >
         {steps.map((elem: ISteps, index: number) => (
           <div
             className={`flex items-center ${
               index + 1 !== totalSteps ? "flex-1" : "flex-initial"
             }`}
             key={elem.value}
+            data-testid="Steps-Section"
           >
             <div
               className={`px-2 min-w-6 rounded-full text-white ${

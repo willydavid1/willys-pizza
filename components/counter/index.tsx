@@ -23,12 +23,14 @@ const Counter = ({
       className={`flex p-1 rounded-full ${
         value > 0 ? "bg-gray-50 shadow-md" : ""
       }`}
+      data-testid="Counter-Wrapper"
     >
       {value > 0 && (
         <>
           <button
             className="px-2 focus:outline-none text-2xl"
             onClick={() => changeValue("subtract")}
+            data-testid="Counter-Subtract"
           >
             <IoRemoveCircleOutline />
           </button>
@@ -39,6 +41,7 @@ const Counter = ({
       <button
         className="px-2 focus:outline-none text-2xl"
         onClick={() => changeValue("add")}
+        data-testid="Counter-Add"
       >
         <IoAddCircleOutline />
       </button>
